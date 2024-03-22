@@ -12,6 +12,10 @@ import jakarta.persistence.NamedQuery;
         name = "libroPerAnnoPubblicazione",
         query = "SELECT l FROM Libro l WHERE l.annoPubblicazione = :annoPubblicazione"
 )
+@NamedQuery(
+        name = "libroPerAutore",
+        query = "SELECT l FROM Libro l WHERE l.autore LIKE :autore"
+)
 public class Libro extends ElementoBibliografico  {
 
     @Column

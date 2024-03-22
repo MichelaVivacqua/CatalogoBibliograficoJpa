@@ -62,7 +62,22 @@ public class LibriDAO {
 
         return libri;
     }
+    public List<Libro> libroPerAutore(String autore) {
+        TypedQuery<Libro> query = em.createNamedQuery("libroPerAutore", Libro.class);
+        query.setParameter("autore", "%" + autore + "%");
+        List<Libro> libri = query.getResultList();
 
+        if (!libri.isEmpty()) {
+            System.out.println("Riviste dell'autore \"" + autore + "\":");
+            for (Libro libro : libri) {
+                System.out.println(libro);
+            }
+        } else {
+            System.out.println("Nessuna rivista trovata per l'autore \"" + autore + "\"");
+        }
+
+        return libri;
+    }
 
 
 

@@ -59,4 +59,5 @@ public class RivisteDAO {
         return riviste;
     }
 
+
 }

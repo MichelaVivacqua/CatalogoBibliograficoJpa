@@ -40,6 +40,9 @@ public class Application {
 
         rd.rivistaPerAnnoPubblicazione(2024);
         ld.libroPerAnnoPubblicazione(1999);
+
+        ld.libroPerAutore("michela vivacqua");
+
         em.close();
         emf.close();
 
