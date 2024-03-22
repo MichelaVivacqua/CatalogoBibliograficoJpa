@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class ElementoBibliografico {
     @Id
     @Column
-    @GeneratedValue
+//    @GeneratedValue
     protected long isbn;
     @Column
     protected String titolo;
@@ -20,6 +20,7 @@ public abstract class ElementoBibliografico {
     protected long numeroPagine;
     @OneToMany(mappedBy = "isbn")
     private List<ElementoBibliografico> elementoBibliograficoList;
+    public ElementoBibliografico(){}
 
     public ElementoBibliografico(long isbn, String titolo, int annoPubblicazione, long numeroPagine) {
         this.isbn = isbn;

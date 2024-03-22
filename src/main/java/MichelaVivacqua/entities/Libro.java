@@ -21,6 +21,7 @@ public class Libro extends ElementoBibliografico  {
     public String getGenere() {
         return genere;
     }
+    public Libro(){}
 
 
     public Libro(long isbn, String titolo, int annoPubblicazione, long numeroPagine, String autore, String genere) {
