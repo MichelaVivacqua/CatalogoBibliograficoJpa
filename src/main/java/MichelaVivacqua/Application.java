@@ -72,6 +72,8 @@ public class Application {
 //        pd.save(prestito3);
 
 pd.PrestitiPerUtente(2);
+pd.PrestitiScadutiNonRestituiti();
+
         em.close();
         emf.close();
 

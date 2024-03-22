@@ -10,6 +10,10 @@ import java.util.List;
         name = "PrestitiPerUtente",
         query = "SELECT p FROM Prestito p WHERE p.utente.numeroDiTessera = :numeroTessera AND p.dataRestituzioneEffettiva IS NULL"
 )
+@NamedQuery(
+        name = "PrestitiScadutiNonRestituiti",
+        query = "SELECT p FROM Prestito p WHERE p.dataRestituzioneEffettiva < CURRENT_DATE AND dataRestituzioneEffettiva<dataRestituzionePrevista"
+)
 public class Prestito {
 @ManyToOne
 @JoinColumn(name="utente_id")

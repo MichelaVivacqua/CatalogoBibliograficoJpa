@@ -36,4 +36,22 @@ public class PrestitiDAO {
                 System.out.println(prestito); // Stampa il prestito nel formato definito dal metodo toString() di Prestito
             }
         }
-}}
+}
+    public void PrestitiScadutiNonRestituiti() {
+        TypedQuery<Prestito> query = em.createNamedQuery(
+                "PrestitiScadutiNonRestituiti",
+                Prestito.class
+        );
+        List<Prestito> prestiti = query.getResultList();
+
+        if (prestiti.isEmpty()) {
+            System.out.println("Nessun prestito scaduto e non restituito trovato.");
+        } else {
+            System.out.println("Prestiti scaduti e non restituiti trovati:");
+            for (Prestito prestito : prestiti) {
+                System.out.println(prestito);
+            }
+        }
+    }
+
+}
