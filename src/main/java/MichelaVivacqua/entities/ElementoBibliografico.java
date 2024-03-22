@@ -1,10 +1,21 @@
 package MichelaVivacqua.entities;
 
+import jakarta.persistence.*;
+
+import java.util.List;
+
+@Entity
+@Table (name="elemento_bibliografico")
+@Inheritance (strategy= InheritanceType.TABLE_PER_CLASS)
 public abstract class ElementoBibliografico {
+    @Id
+    @GeneratedValue
     protected long isbn;
     protected String titolo;
     protected int annoPubblicazione;
     protected long numeroPagine;
+    @OneToMany(mappedBy = "elementoBibliografico")
+    private List<ElementoBibliografico> elementoBibliograficoList;
 
     public ElementoBibliografico(long isbn, String titolo, int annoPubblicazione, long numeroPagine) {
         this.isbn = isbn;

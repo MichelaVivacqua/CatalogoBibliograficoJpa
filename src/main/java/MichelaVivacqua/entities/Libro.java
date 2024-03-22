@@ -2,7 +2,10 @@ package MichelaVivacqua.entities;
 
 
 import com.github.javafaker.Faker;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
 
+@Entity
 public class Libro extends ElementoBibliografico  {
 
     private String autore;

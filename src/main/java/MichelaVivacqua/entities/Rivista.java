@@ -1,5 +1,8 @@
 package MichelaVivacqua.entities;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Rivista extends ElementoBibliografico{
 
     private TipoRivista tipoRivista;

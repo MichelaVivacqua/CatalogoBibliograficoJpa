@@ -1,7 +1,12 @@
 package MichelaVivacqua.entities;
 
-import java.time.LocalDate;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
+import java.time.LocalDate;
+@Entity
 public class Utente {
     private String nome;
     private String cognome;
@@ -16,6 +21,9 @@ public class Utente {
         this.dataDiNascita=dataDiNascita;
         this.numeroDiTessera=numeroDiTessera;
     }
+    @ManyToOne
+    @JoinColumn(name="prestito_id")
+    private Prestito prestito;
 
     public String getNome() {
         return nome;
