@@ -16,17 +16,16 @@ public class Utente {
     @Id
     @Column
     @GeneratedValue
-    private Long numeroDiTessera;
+    private int numeroDiTessera;
 @OneToMany(mappedBy = "utente")
 private List<Prestito> prestitoList;
 
     public Utente (){}
 
-    public Utente (String nome, String cognome, LocalDate dataDiNascita, Long numeroDiTessera){
+    public Utente (String nome, String cognome, LocalDate dataDiNascita){
         this.nome=nome;
         this.cognome=cognome;
         this.dataDiNascita=dataDiNascita;
-        this.numeroDiTessera=numeroDiTessera;
     }
 
 
@@ -54,11 +53,11 @@ private List<Prestito> prestitoList;
         this.dataDiNascita = dataDiNascita;
     }
 
-    public Long getNumeroDiTessera() {
+    public int getNumeroDiTessera() {
         return numeroDiTessera;
     }
 
-    public void setNumeroDiTessera(Long numeroDiTessera) {
+    public void setNumeroDiTessera(int numeroDiTessera) {
         this.numeroDiTessera = numeroDiTessera;
     }
 }

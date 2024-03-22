@@ -6,6 +6,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@NamedQuery(
+        name = "PrestitiPerUtente",
+        query = "SELECT p FROM Prestito p WHERE p.utente.numeroDiTessera = :numeroTessera AND p.dataRestituzioneEffettiva IS NULL"
+)
 public class Prestito {
 @ManyToOne
 @JoinColumn(name="utente_id")
@@ -27,11 +31,12 @@ public class Prestito {
     public Prestito() {
     }
 
-    public Prestito(Utente utente, ElementoBibliografico elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva) {
+    public Prestito(Utente utente, ElementoBibliografico elementoPrestato, LocalDate dataInizioPrestito,  LocalDate dataRestituzioneEffettiva) {
         this.utente=utente;
         this.elementoPrestato=elementoPrestato;
-        this.dataInizioPrestito=dataInizioPrestito;
-        this.dataRestituzionePrevista=dataRestituzionePrevista;
+//        this.dataInizioPrestito=dataInizioPrestito;
+        this.dataRestituzionePrevista = dataInizioPrestito.plusDays(30);
+        this.dataRestituzionePrevista = dataRestituzionePrevista;
         this.dataRestituzioneEffettiva=dataRestituzioneEffettiva;
 
     }
@@ -74,5 +79,16 @@ public class Prestito {
 
     public void setDataRestituzioneEffettiva(LocalDate dataRestituzioneEffettiva) {
         this.dataRestituzioneEffettiva = dataRestituzioneEffettiva;
+    }
+
+    @Override
+    public String toString() {
+        return "Prestito{" +
+                "utente=" + utente +
+                ", elementoPrestato=" + elementoPrestato +
+                ", dataInizioPrestito=" + dataInizioPrestito +
+                ", dataRestituzionePrevista=" + dataRestituzionePrevista +
+                ", dataRestituzioneEffettiva=" + dataRestituzioneEffettiva +
+                '}';
     }
 }
