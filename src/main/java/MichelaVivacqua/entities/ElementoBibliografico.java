@@ -9,12 +9,16 @@ import java.util.List;
 @Inheritance (strategy= InheritanceType.TABLE_PER_CLASS)
 public abstract class ElementoBibliografico {
     @Id
+    @Column
     @GeneratedValue
     protected long isbn;
+    @Column
     protected String titolo;
+    @Column
     protected int annoPubblicazione;
+    @Column
     protected long numeroPagine;
-    @OneToMany(mappedBy = "elementoBibliografico")
+    @OneToMany(mappedBy = "isbn")
     private List<ElementoBibliografico> elementoBibliograficoList;
 
     public ElementoBibliografico(long isbn, String titolo, int annoPubblicazione, long numeroPagine) {

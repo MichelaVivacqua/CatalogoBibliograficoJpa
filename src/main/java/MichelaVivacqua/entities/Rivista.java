@@ -1,11 +1,16 @@
 package MichelaVivacqua.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 @Entity
 public class Rivista extends ElementoBibliografico{
 
-    private TipoRivista tipoRivista;
+   @Enumerated (EnumType.STRING)
+    @Column
+   private TipoRivista tipoRivista;
     public Rivista(long isbn, String titolo, int annoPubblicazione, long numeroPagine, TipoRivista tipoRivista) {
         super(isbn, titolo, annoPubblicazione, numeroPagine);
         this.tipoRivista=tipoRivista;

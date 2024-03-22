@@ -1,26 +1,28 @@
 package MichelaVivacqua.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 public class Prestito {
-    private Utente utente;
-    private ElementoBibliografico elementoPrestato;
-    private LocalDate dataInizioPrestito;
-    private LocalDate dataRestituzionePrevista;
-    private LocalDate dataRestituzioneEffettiva;
-    @ManyToOne
-    @JoinColumn(name="elementoBibliografico_id")
-    private ElementoBibliografico elementoBibliografico;
+@ManyToOne
+@JoinColumn(name="utente_id")
+@Id
 
-    @OneToMany (mappedBy = "prestito")
-    private List<Prestito> prestitoList;
+   private Utente utente;
+    @ManyToOne
+    @JoinColumn(name="isbn_id")
+    private ElementoBibliografico elementoPrestato;
+    @Column
+    private LocalDate dataInizioPrestito;
+    @Column
+    private LocalDate dataRestituzionePrevista;
+    @Column
+    private LocalDate dataRestituzioneEffettiva;
+
+
 
     public Prestito() {
     }
