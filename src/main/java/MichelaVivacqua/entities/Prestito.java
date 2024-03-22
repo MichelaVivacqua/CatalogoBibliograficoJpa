@@ -3,7 +3,6 @@ package MichelaVivacqua.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @NamedQuery(
@@ -38,9 +37,9 @@ public class Prestito {
     public Prestito(Utente utente, ElementoBibliografico elementoPrestato, LocalDate dataInizioPrestito,  LocalDate dataRestituzioneEffettiva) {
         this.utente=utente;
         this.elementoPrestato=elementoPrestato;
-//        this.dataInizioPrestito=dataInizioPrestito;
+        this.dataInizioPrestito=dataInizioPrestito;
         this.dataRestituzionePrevista = dataInizioPrestito.plusDays(30);
-        this.dataRestituzionePrevista = dataRestituzionePrevista;
+//        this.dataRestituzionePrevista = dataRestituzionePrevista;
         this.dataRestituzioneEffettiva=dataRestituzioneEffettiva;
 
     }

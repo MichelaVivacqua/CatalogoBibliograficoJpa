@@ -1,6 +1,5 @@
 package MichelaVivacqua.dao;
 
-import MichelaVivacqua.entities.Libro;
 import MichelaVivacqua.entities.Prestito;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -29,11 +28,11 @@ public class PrestitiDAO {
         List<Prestito> prestiti = query.getResultList();
 
         if (prestiti.isEmpty()) {
-            System.out.println("Nessun prestito trovato per l'utente con numero di tessera: " + numeroTessera);
+            System.out.println("Nessun prestito ancora non restituito trovato per l'utente con numero di tessera: " + numeroTessera);
         } else {
             System.out.println("Prestiti trovati per l'utente con numero di tessera: " + numeroTessera);
             for (Prestito prestito : prestiti) {
-                System.out.println(prestito); // Stampa il prestito nel formato definito dal metodo toString() di Prestito
+                System.out.println(prestito);
             }
         }
 }

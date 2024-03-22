@@ -1,6 +1,5 @@
 package MichelaVivacqua.dao;
 
-import MichelaVivacqua.entities.Prestito;
 import MichelaVivacqua.entities.Utente;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
