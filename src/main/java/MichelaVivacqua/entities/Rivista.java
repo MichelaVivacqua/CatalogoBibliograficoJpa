@@ -7,7 +7,10 @@ import jakarta.persistence.*;
         name = "rivistaPerAnnoPubblicazione",
         query = "SELECT r FROM Rivista r WHERE r.annoPubblicazione = :annoPubblicazione"
 )
-
+@NamedQuery(
+        name = "rivistaPerTitolo",
+        query = "SELECT r FROM Rivista r WHERE r.titolo LIKE :titolo"
+)
 public class Rivista extends ElementoBibliografico{
 
    @Enumerated (EnumType.STRING)

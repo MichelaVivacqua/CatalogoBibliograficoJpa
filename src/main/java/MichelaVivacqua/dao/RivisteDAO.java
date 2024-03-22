@@ -58,6 +58,22 @@ public class RivisteDAO {
 
         return riviste;
     }
+    public List<Rivista> rivistaPerTitolo(String titolo) {
+        TypedQuery<Rivista> query = em.createNamedQuery("rivistaPerTitolo", Rivista.class);
+        query.setParameter("titolo", "%" + titolo + "%");
+        List<Rivista> riviste = query.getResultList();
 
+        if (!riviste.isEmpty()) {
+            System.out.println("Riviste con il titolo contenente " + titolo + ":");
+            for (Rivista rivista : riviste) {
+                System.out.println(rivista);
+            }
+        } else {
+            System.out.println("Nessuna rivista trovata con il titolo contenente " + titolo );
+        }
 
+        return riviste;
+    }
 }
+
+

@@ -43,6 +43,9 @@ public class Application {
 
         ld.libroPerAutore("michela vivacqua");
 
+        rd.rivistaPerTitolo("avventure");
+        ld.libroPerTitolo("mia");
+
         em.close();
         emf.close();
 

@@ -79,6 +79,22 @@ public class LibriDAO {
         return libri;
     }
 
+    public List<Libro> libroPerTitolo(String titolo) {
+        TypedQuery<Libro> query = em.createNamedQuery("libroPerTitolo", Libro.class);
+        query.setParameter("titolo", "%" + titolo + "%");
+        List<Libro> libri = query.getResultList();
+
+        if (!libri.isEmpty()) {
+            System.out.println("Libri con il titolo contenente " + titolo + ":");
+            for (Libro libro : libri) {
+                System.out.println(libro);
+            }
+        } else {
+            System.out.println("Nessun libro trovato con il titolo contenente " + titolo );
+        }
+
+        return libri;
+    }
 
 
 }
