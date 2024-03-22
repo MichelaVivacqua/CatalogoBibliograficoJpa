@@ -11,6 +11,8 @@ public class Rivista extends ElementoBibliografico{
    @Enumerated (EnumType.STRING)
     @Column
    private TipoRivista tipoRivista;
+
+   public Rivista (){}
     public Rivista(long isbn, String titolo, int annoPubblicazione, long numeroPagine, TipoRivista tipoRivista) {
         super(isbn, titolo, annoPubblicazione, numeroPagine);
         this.tipoRivista=tipoRivista;
