@@ -38,6 +38,8 @@ public class Application {
 //        ld.deleteByIsbn(12345689);
 //        rd.deleteByIsbn(14567891);
 
+        rd.rivistaPerAnnoPubblicazione(2024);
+        ld.libroPerAnnoPubblicazione(1999);
         em.close();
         emf.close();
 

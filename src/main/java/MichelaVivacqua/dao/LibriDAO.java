@@ -1,8 +1,12 @@
 package MichelaVivacqua.dao;
 
 import MichelaVivacqua.entities.Libro;
+import MichelaVivacqua.entities.Rivista;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
+
+import java.util.List;
 
 public class LibriDAO {
 
@@ -41,6 +45,25 @@ public class LibriDAO {
         System.out.println("Libro con ISBN " + found.getIsbn() + " eliminato correttamente dal database!");
 
     }
+
+    public List<Libro> libroPerAnnoPubblicazione(int annoPubblicazione) {
+        TypedQuery<Libro> query = em.createNamedQuery("libroPerAnnoPubblicazione", Libro.class);
+        query.setParameter("annoPubblicazione", annoPubblicazione);
+        List<Libro> libri = query.getResultList();
+
+        if (!libri.isEmpty()) {
+            System.out.println("Libri pubblicati nell'anno " + annoPubblicazione + ":");
+            for (Libro libro : libri) {
+                System.out.println(libro);
+            }
+        } else {
+            System.out.println("Nessun libro trovato pubblicato nell'anno " + annoPubblicazione);
+        }
+
+        return libri;
+    }
+
+
 
 
 }

@@ -5,8 +5,13 @@ import com.github.javafaker.Faker;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(
+        name = "libroPerAnnoPubblicazione",
+        query = "SELECT l FROM Libro l WHERE l.annoPubblicazione = :annoPubblicazione"
+)
 public class Libro extends ElementoBibliografico  {
 
     @Column

@@ -1,11 +1,12 @@
 package MichelaVivacqua.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 
 @Entity
+@NamedQuery(
+        name = "rivistaPerAnnoPubblicazione",
+        query = "SELECT r FROM Rivista r WHERE r.annoPubblicazione = :annoPubblicazione"
+)
 public class Rivista extends ElementoBibliografico{
 
    @Enumerated (EnumType.STRING)
